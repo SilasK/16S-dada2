@@ -1,0 +1,21 @@
+# This file should contain everything to configure the workflow on a global scale.
+# In case of sample based data, it should be complemented by a samples.tsv file that contains
+# one row per sample. It can be parsed easily via pandas.
+
+java_mem: 30
+threads: 4
+
+truncLen:
+  - 180
+  - 100
+maxEE:
+  - 2
+  - 2
+truncQ: 2
+learn_nbases: 100e6
+chimera_method: "consensus"
+max_length_variation: 7
+idtaxa_dbs:
+#  RDP: "/Users/silas/Desktop/WarmMicrobiota/TaxonmyDBs/RDP_v16-mod_March2018.RData"
+  Silva: "/Users/silas/Desktop/WarmMicrobiota/TaxonmyDBs/SILVA_SSU_r132_March2018.RData"
+  GTDB: "/Users/silas/Desktop/WarmMicrobiota/TaxonmyDBs/GTDB_r86-mod_September2018.RData"
