@@ -3,6 +3,8 @@
 !scripts/*
 !scripts/common
 !scripts/common/*
+!scripts/dada2
+!scripts/dada2/*
 scripts/.snakemake*
 !Snakefile
 !config.yaml
