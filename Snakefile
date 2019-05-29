@@ -17,7 +17,7 @@ rule all:
         "model/ErrorRates_R1.rds",
          "output/seqtab.tsv",
          "figures/Lengths/Sequence_Length_distribution_abundance.pdf",
-         expand("taxonomy/{ref}.tsv",ref= config['idtaxa_dbs'].keys()),
+         #expand("taxonomy/{ref}.tsv",ref= config['idtaxa_dbs'].keys()),
          "taxonomy/rep_seq.fasta",
          'stats/Nreads.tsv',
          "taxonomy/otu_tree.nwk"
