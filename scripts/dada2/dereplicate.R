@@ -22,23 +22,10 @@ names(dadaFs) <- sam.names
 names(filtFs) <- sam.names
 names(filtRs) <- sam.names
 
+ddF <- dada(filtFs, err=errF, multithread=snakemake@threads, pool=TRUE)
+ddR <- dada(filtRs, err=errR, multithread=snakemake@threads, pool=TRUE)
 
-
-for(sam in sam.names) {
-  cat("Processing:", sam, "\n")
-
-  derepF <- derepFastq(filtFs[[sam]])
-  ddF <- dada(derepF, err=errF, multithread=snakemake@threads)
-
-  dadaFs[[sam]] <- ddF
-  derepR <- derepFastq(filtRs[[sam]])
-  ddR <- dada(derepR, err=errR, multithread=snakemake@threads)
-
-  merger <- mergePairs(ddF, derepF, ddR, derepR)
-  mergers[[sam]] <- merger
-}
-rm(derepF); rm(derepR)
-
+mergers <- mergePairs(ddF, filtFs, ddR, filtRs)
 
 ## ---- seqtab ----
 seqtab.all <- makeSequenceTable(mergers)
