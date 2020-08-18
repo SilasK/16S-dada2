@@ -107,6 +107,7 @@ rule filterLength:
         "../scripts/dada2/filterLength.R"
 
 
+
 rule IDtaxa:
     input:
         seqtab= "output/seqtab.rds",
@@ -119,6 +120,37 @@ rule IDtaxa:
         "logs/dada2/IDtaxa_{ref}.txt"
     script:
         "../scripts/dada2/IDtaxa.R"
+
+localrules: get_ggtaxonomy
+
+rule get_ggtaxonomy:
+    input:
+        rules.IDtaxa.output
+    output:
+        taxonomy= "taxonomy/{ref}_gg.tsv",
+    threads:
+        1
+    log:
+        "logs/dada2/get_ggtaxonomy_{ref}.txt"
+    run:
+
+        import pandas as pd
+
+        tax = pd.read_csv(input[0],sep='\t',index_col=0)
+
+        out= tax.dropna(how='all',axis=1).dropna(how='all',axis=0)
+
+        out= out.apply(lambda col: col.name[0]+'_'+col.dropna())
+        out= out.apply(lambda row: ';'.join(row.dropna()),axis=1)
+        out.name='Taxonomy'
+
+
+        out.to_csv(output[0],sep='\t',header=True)
+
+
+
+
+
 
 
 rule get_rep_seq:
