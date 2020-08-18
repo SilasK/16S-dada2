@@ -22,6 +22,11 @@ rule all:
          'stats/Nreads.tsv',
          "taxonomy/otu_tree.nwk"
 
+rule taxonomy:
+    input:
+        expand("taxonomy/{ref}_gg.tsv", ref='Silva'),
+        expand("taxonomy/{ref}.tsv", ref='Silva'),
+
 
 rule all_profile:
     input: expand("figures/Quality_profiles/{direction}/{sample}_{direction}.pdf",sample=SAMPLES,direction=['R1','R2'])
