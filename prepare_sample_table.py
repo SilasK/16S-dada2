@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 import os
 import logging
 import pandas as pd
@@ -41,6 +42,7 @@ def get_sample_files(path,outfile='samples.tsv'):
 
     if os.path.exists(outfile):
         logging.error(f"Output file {outfile} already exists I don't date to overwrite it.")
+        exit(1)
     else:
         samples.to_csv(outfile,sep='\t')
 

@@ -11,21 +11,29 @@ PAIRED_END= ('R2' in SampleTable.columns)
 FRACTIONS= ['R1']
 if PAIRED_END: FRACTIONS+= ['R2']
 
+def get_taxonomy_names():
+
+    if 'idtaxa_dbs' in config and config['idtaxa_dbs'] is not None:
+        return config['idtaxa_dbs'].keys()
+    else:
+        return []
+
+
 rule all:
     input:
         "stats/Nreads_filtered.txt",
         "model/ErrorRates_R1.rds",
          "output/seqtab.tsv",
          "figures/Lengths/Sequence_Length_distribution_abundance.pdf",
-         #expand("taxonomy/{ref}.tsv",ref= config['idtaxa_dbs'].keys()),
          "taxonomy/rep_seq.fasta",
          'stats/Nreads.tsv',
-         "taxonomy/otu_tree.nwk"
+         "taxonomy/otu_tree.nwk",
+         expand("taxonomy/{ref}.tsv", ref=get_taxonomy_names())
 
 rule taxonomy:
     input:
-        expand("taxonomy/{ref}_gg.tsv", ref='Silva'),
-        expand("taxonomy/{ref}.tsv", ref='Silva'),
+        expand("taxonomy/{ref}_gg.tsv", ref=get_taxonomy_names()),
+        expand("taxonomy/{ref}.tsv", ref=get_taxonomy_names()),
 
 
 rule all_profile:

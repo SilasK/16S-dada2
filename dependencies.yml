@@ -1,0 +1,9 @@
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.6
+  - snakemake=5.10
+  - bioconductor-dada2=1.14
+  - bioconductor-decipher=2.14

@@ -19,9 +19,29 @@ If you intend to modify and further develop this workflow, fork this repository.
 
 In any case, if you use this workflow in a paper, don't forget to give credits to the authors by citing the URL of this repository and, if available, its DOI (see above).
 
+#### Requirements:
+
+The pipeline has some dependencies which an be installed with conda:
+
+```
+conda env create -n dada2_env --file dependencies.yml
+
+```
+
+#### Databases:
+
+For taxonomic annotation I use IDtaxa. A database e.g. the one from GTDB should be downloaded from [here](http://www2.decipher.codes/Downloads.html) and the path added to the config file.
+
 ### Step 2: Configure workflow
 
 Configure the workflow according to your needs via editing the file `config.yaml`.
+
+Create a sample table like [this one](.test/samples.tsv). You can use the script `prepare_sample_table.py` for it. The scripts searches for fastq(.gz) files inside a folder (structure). If you have paired end files they should have R1/R2 somewhere in the filename. If might be a good idea to simplify sample names.
+
+```
+prepare_sample_table.py path/to/fasqfiles
+```
+
 
 ### Step 3: Execute workflow
 
@@ -45,4 +65,4 @@ See the [Snakemake documentation](https://snakemake.readthedocs.io) for further 
 
 ## Testing
 
-Tests cases are in the subfolder `.test`. They should be executed via continuous integration with Travis CI.
+You can test the pipeline with the script `test.py`.
