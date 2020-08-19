@@ -72,9 +72,10 @@ See the [Snakemake documentation](https://snakemake.readthedocs.io) for further 
 
 You can test the pipeline with the script `test.py`.
 
-## Cite
 
-#### dada2:
+## Cite
+
+#### dada2
 
 Callahan, B., McMurdie, P., Rosen, M. et al. DADA2: High-resolution sample inference from Illumina amplicon data. Nat Methods 13, 581–583 (2016). https://doi.org/10.1038/nmeth.3869
 
