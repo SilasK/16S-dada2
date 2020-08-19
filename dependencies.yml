@@ -8,3 +8,4 @@ dependencies:
   - bioconductor-dada2=1.14
   - bioconductor-decipher=2.14
   - matplotlib-base>=3.2,<4
+  - r-phangorn=2.5
