@@ -17,7 +17,7 @@ if os.path.exists(sample_table):  os.remove(sample_table)
 
 # Create sample table
 
-shell('./prepare_sample_table.py miseqsopdata/MiSeq_SOP')
+shell('./prepare_sample_table.py MiSeq_SOP')
 
 # simplify names in sample table (optional)
 
@@ -30,4 +30,4 @@ D.to_csv(sample_table,sep='\t')
 
 # run the pipeline
 
-shell("snakemake --configfile config.yaml -j1 -d .test")
+shell("snakemake --configfile config.yaml -j1 ")

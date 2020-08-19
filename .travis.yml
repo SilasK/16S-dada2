@@ -25,6 +25,7 @@ install:
 script:
   - source activate dada2env
   - wget https://mothur.s3.us-east-2.amazonaws.com/wiki/miseqsopdata.zip
-  - unzip  miseqsopdata.zip
-  - ./prepare_sample_table.py miseqsopdata/MiSeq_SOP
-  - snakemake --configfile config.yaml -j1 -d .test
+  - unzip miseqsopdata.zip
+  - ls
+  - ./prepare_sample_table.py MiSeq_SOP
+  - snakemake --configfile config.yaml -j1
