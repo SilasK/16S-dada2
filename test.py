@@ -30,4 +30,4 @@ D.to_csv(sample_table,sep='\t')
 
 # run the pipeline
 
-shell("snakemake --configfile config.yaml -j1")
+shell("snakemake --configfile config.yaml -j1 -d .test")
