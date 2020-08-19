@@ -7,3 +7,4 @@ dependencies:
   - snakemake=5.10
   - bioconductor-dada2=1.14
   - bioconductor-decipher=2.14
+  - matplotlib-base>=3.2,<4
