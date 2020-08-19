@@ -27,13 +27,16 @@ rule all:
          "figures/Lengths/Sequence_Length_distribution_abundance.pdf",
          "taxonomy/rep_seq.fasta",
          'stats/Nreads.tsv',
-         "taxonomy/otu_tree.nwk",
          expand("taxonomy/{ref}.tsv", ref=get_taxonomy_names())
 
-rule taxonomy:
+rule all_taxonomy:
     input:
         expand("taxonomy/{ref}_gg.tsv", ref=get_taxonomy_names()),
         expand("taxonomy/{ref}.tsv", ref=get_taxonomy_names()),
+
+rule all_tree:
+    input:
+        "taxonomy/otu_tree.nwk",
 
 
 rule all_profile:
