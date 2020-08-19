@@ -24,6 +24,7 @@ install:
 
 script:
   - source activate dada2env
-  # run the workflow
-  # put a test case into the subfolder .test (e.g., use https://github.com/snakemake-workflows/ngs-test-data as a submodule)
-  - ./test.py
+  - wget https://mothur.s3.us-east-2.amazonaws.com/wiki/miseqsopdata.zip
+  - unzip  miseqsopdata.zip
+  - ./prepare_sample_table.py miseqsopdata/MiSeq_SOP
+  - snakemake --configfile config.yaml -j1 -d .test

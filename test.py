@@ -17,7 +17,7 @@ if os.path.exists(sample_table):  os.remove(sample_table)
 
 # Create sample table
 
-shell('prepare_sample_table.py miseqsopdata/MiSeq_SOP')
+shell('./prepare_sample_table.py miseqsopdata/MiSeq_SOP')
 
 # simplify names in sample table (optional)
 
