@@ -1,11 +1,15 @@
 # Snakemake workflow: Dada2
 
 [![Snakemake](https://img.shields.io/badge/snakemake-≥5-brightgreen.svg)](https://snakemake.bitbucket.io)
-[![dada2](https://img.shields.io/badge/dada2-v1.14-yellow.svg)](https://snakemake.bitbucket.io)
+[![dada2](https://img.shields.io/badge/dada2-v1.14-brightgreen.svg)](https://benjjneb.github.io/dada2/index.html)
 [![Build Status](https://travis-ci.org/snakemake-workflows/amplicon-seq-dada2.svg?branch=master)](https://travis-ci.org/snakemake-workflows/amplicon-seq-dada2)
 
-This is the template for a new Snakemake workflow. Replace this text with a comprehensive description covering the purpose and domain.
-Insert your code into the respective folders, i.e. `scripts`, `rules`, and `envs`. Define the entry point of the workflow in the `Snakefile` and the main configuration in the `config.yaml` file.
+
+This workflow is an implementation of the popular DADA2 tool. I followed the steps in the [Tutorial](https://benjjneb.github.io/dada2/tutorial.html). I use IDtaxa for taxonomic annotation.
+
+![dada2](https://benjjneb.github.io/dada2/images/DADA2_Logo_Text_1_14_640px.png)
+
+
 
 ## Authors
 
@@ -67,3 +71,12 @@ See the [Snakemake documentation](https://snakemake.readthedocs.io) for further 
 ## Testing
 
 You can test the pipeline with the script `test.py`.
+
+## Cite
+
+#### dada2:
+
+Callahan, B., McMurdie, P., Rosen, M. et al. DADA2: High-resolution sample inference from Illumina amplicon data. Nat Methods 13, 581–583 (2016). https://doi.org/10.1038/nmeth.3869
+
+#### IDtaxa:
+Murali, A., Bhargava, A. & Wright, E.S. IDTAXA: a novel approach for accurate taxonomic classification of microbiome sequences. Microbiome 6, 140 (2018). https://doi.org/10.1186/s40168-018-0521-5
