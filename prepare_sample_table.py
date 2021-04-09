@@ -41,7 +41,7 @@ def get_sample_files(path,outfile='samples.tsv'):
         logging.error(f"Missing files:\n {samples}")
 
     if os.path.exists(outfile):
-        logging.error(f"Output file {outfile} already exists I don't date to overwrite it.")
+        logging.error(f"Output file {outfile} already exists I don't dare to overwrite it.")
         exit(1)
     else:
         samples.to_csv(outfile,sep='\t')
@@ -52,4 +52,5 @@ def get_sample_files(path,outfile='samples.tsv'):
 
 if __name__ == '__main__':
     import sys
+    print("Running prepare_sample_table.py. Usage: python prepare_sample_table.py path_to_fastq.gz_files")
     get_sample_files(sys.argv[1])
