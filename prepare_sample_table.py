@@ -54,3 +54,4 @@ if __name__ == '__main__':
     import sys
     print("Running prepare_sample_table.py. Usage: python prepare_sample_table.py path_to_fastq.gz_files")
     get_sample_files(sys.argv[1])
+    print("Done")
