@@ -61,19 +61,19 @@ The script creates a `samples.tsv` in the *working directory*. Here is an exampl
 
 Test your configuration by performing a dry-run via
 
-    snakemake -n
+    snakemake --configfile path/config.yaml -n
 
 Execute the workflow locally via
 
-    snakemake --cores $N
+    snakemake --configfile path/config.yaml --cores $N
 
 using `$N` cores or run it in a cluster environment via
 
-    snakemake --cluster qsub --jobs 100
+    snakemake --configfile path/config.yaml --cluster qsub --jobs 100
 
 or
 
-    snakemake --drmaa --jobs 100
+    snakemake --configfile path/config.yaml --drmaa --jobs 100
 
 See the [Snakemake documentation](https://snakemake.readthedocs.io) for further details.
 
