@@ -52,6 +52,8 @@ def get_sample_files(path,outfile='samples.tsv'):
 
 if __name__ == '__main__':
     import sys
-    print("Running prepare_sample_table.py. Usage: python prepare_sample_table.py path_to_fastq.gz_files")
+    print("Running prepare_sample_table.py. Usage: ./prepare_sample_table.py path_to_fastq.(gz)_files"
+          "\n"
+          "Expect files that contain R1 and R2 in the filename otherwise they are treated as single end.")
     get_sample_files(sys.argv[1])
     print("Done")
