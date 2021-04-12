@@ -2,7 +2,22 @@ import os
 import pandas as pd
 
 #configfile: "config.yaml"
-SampleTable = pd.read_table(config['sampletable'],index_col=0)
+
+sample_table_file=config.get('sampletable','samples.tsv')
+
+if not os.path.exists(sample_table_file):
+
+    logger.critical("Couldn't find sampletable!
+                    f"I looked for {sample_table_file} relativ to working directory.\n"
+                    "Create one with the script prepare_sample_table.py \n"
+                    "You can also specify the path to the sample table in the config file."
+                    )
+    exit(1)
+
+SampleTable = pd.read_table(sample_table_file,index_col=0)
+
+
+
 SAMPLES = list(SampleTable.index)
 
 JAVA_MEM_FRACTION=0.85
