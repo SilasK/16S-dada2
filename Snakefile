@@ -7,7 +7,7 @@ sample_table_file=config.get('sampletable','samples.tsv')
 
 if not os.path.exists(sample_table_file):
 
-    logger.critical("Couldn't find sampletable!
+    logger.critical("Couldn't find sampletable!"
                     f"I looked for {sample_table_file} relativ to working directory.\n"
                     "Create one with the script prepare_sample_table.py \n"
                     "You can also specify the path to the sample table in the config file."
